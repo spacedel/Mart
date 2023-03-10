@@ -1,4 +1,4 @@
-export const surpriseMePrompts = [
+const surpriseMePrompts = [
     'an armchair in the shape of an avocado',
     'a surrealist dream-like oil painting by Salvador Dalí of a cat playing checkers',
     'teddy bears shopping for groceries in Japan, ukiyo-e',
@@ -45,4 +45,13 @@ export const surpriseMePrompts = [
     'Synthwave aeroplane',
     'A man wanders through the rainy streets of Tokyo, with bright neon signs, 50mm',
     'A Space Shuttle flying above Cape Town, digital art',
-  ];
+];
+
+export function getRandomPrompt(prompt) {
+    const randomIndex = Math.floor(Math.random() * surpriseMePrompts.length);
+    const randomPrompt = surpriseMePrompts[randomIndex];
+
+    if(randomPrompt === prompt) return getRandomPrompt(prompt);
+
+    return randomPrompt;
+}
