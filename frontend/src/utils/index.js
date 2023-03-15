@@ -1,3 +1,5 @@
+import FileSaver from 'file-saver';
+
 const surpriseMePrompts = [
     'an armchair in the shape of an avocado',
     'a surrealist dream-like oil painting by Salvador Dalí of a cat playing checkers',
@@ -55,3 +57,7 @@ export function getRandomPrompt(prompt) {
 
     return randomPrompt;
 }
+
+export async function downloadImage(_id, photo) {
+    FileSaver.saveAs(photo, `download-${_id}.jpg`);
+};
